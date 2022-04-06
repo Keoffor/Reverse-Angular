@@ -14,3 +14,12 @@ steps:
   inputs:
     versionSpec: '6.x'
     checkLatest: true
+- task: Docker@2
+  inputs:
+    containerRegistry: 'pro3'
+    repository: 'keoffor/reverse-angular'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+      latest
